@@ -77,7 +77,7 @@ pub struct TestOpts {
     ///   pretty = Print verbose output;
     ///   terse = Display one character per test;
     ///   (json is unsupported, exists for compatibility with the default test harness)
-    #[clap(possible_values = Format::variants(), default_value_t, ignore_case = true)]
+    #[clap(default_value_t, ignore_case = true)]
     format: Format,
     #[clap(long)]
     /// NO-OP: unsupported option, exists for compatibility with the default test harness
@@ -87,7 +87,7 @@ pub struct TestOpts {
     pub ensure_time: bool,
 }
 
-#[derive(Debug, Eq, PartialEq)]
+#[derive(Debug, Clone, Eq, PartialEq)]
 enum Format {
     Pretty,
     Terse,
